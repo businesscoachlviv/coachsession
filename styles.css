@@ -1,4 +1,4 @@
-@font-face{font-family:'Lato Display';src:url('Lato-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+@font-face{font-family:'Lato Display';src:url('assets/Lato-Black.ttf') format('truetype');font-weight:900;font-display:swap}
 :root{
   --ink:#0d0d0e;--paper:#f6f2ea;--paper-2:#efe9dc;
   --orange:#F26B1F;--orange-2:#ff7d2e;
@@ -139,9 +139,17 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .price-was{font-family:var(--font-display);font-size:24px;color:rgba(255,255,255,.4);text-decoration:line-through}
 .price-now{font-family:var(--font-display);font-size:clamp(56px,10vw,84px);color:var(--orange);line-height:1;letter-spacing:-.03em}
 .price-explain{font-size:18px;line-height:1.55;color:var(--muted);text-align:center;max-width:56ch;margin:0 auto 20px}
+.price-explain--note{font-size:14px;color:rgba(255,255,255,.55);margin-top:8px}
 .price-list{list-style:none;max-width:52ch;margin:0 auto 28px;display:flex;flex-direction:column;gap:14px}
 .price-list li{font-size:18px;line-height:1.5;color:#fff;padding-left:26px;position:relative;text-align:left}
 .price-list li::before{content:'•';position:absolute;left:0;color:var(--orange);font-weight:900}
+.price-section--compact{padding:clamp(48px,6vw,72px) 0}
+.price-section--compact .price-box{padding:20px 0;margin-bottom:20px}
+.price-section--compact .price-now{font-size:clamp(44px,7vw,60px)}
+.price-check-list{display:flex;flex-direction:column;gap:0;max-width:44ch;margin:0 auto 20px}
+.price-check-item{display:flex;gap:14px;align-items:flex-start;text-align:left;font-size:16px;line-height:1.4;padding:12px 0;border-top:1px solid var(--rule)}
+.price-check-item:first-child{border-top:none}
+.price-check-item .ico{width:22px;height:22px;border-radius:50%;background:var(--orange);color:var(--ink);flex-shrink:0;display:grid;place-items:center;font-size:11px;font-weight:900}
 
 footer{padding:32px 0;text-align:center;font-size:12px;color:var(--muted-dark);background:var(--paper)}
 
