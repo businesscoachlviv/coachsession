@@ -212,8 +212,10 @@ src="https://www.facebook.com/tr?id=1798051321643392&ev=PageView&noscript=1"/></
 </div>
 
 <script>
-  document.getElementById('openBotLink').addEventListener('click', function () {
-    if (window.fbq) window.fbq('track', 'Lead');
+  document.querySelectorAll('a[href*="t.me/diagnosticvynnytskaoksana_bot"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (window.fbq) window.fbq('track', 'Lead');
+    });
   });
 
   const stickyCta = document.getElementById('stickyCta');
