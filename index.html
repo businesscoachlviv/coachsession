@@ -222,6 +222,7 @@ src="https://www.facebook.com/tr?id=1798051321643392&ev=PageView&noscript=1"/></
 </div>
 
 <script>
+  const PIXEL_ID = '1798051321643392';
   const BOT_URL = 'https://t.me/diagnosticvynnytskaoksana_bot?start=6a6c8441a28478148b032fa6';
 
   document.querySelectorAll('a[href*="t.me/diagnosticvynnytskaoksana_bot"]').forEach(function (link) {
@@ -242,7 +243,19 @@ src="https://www.facebook.com/tr?id=1798051321643392&ev=PageView&noscript=1"/></
         leads.push({ name, phone, ts: new Date().toISOString() });
         localStorage.setItem('ov_leads', JSON.stringify(leads));
       } catch (e) {}
-      if (window.fbq) window.fbq('track', 'Lead');
+
+      if (window.fbq) {
+        // Advanced Matching: re-init with name/phone so Meta hashes and matches them to the Lead event
+        const nameParts = name.split(/\s+/);
+        const phoneDigits = phone.replace(/[^\d+]/g, '');
+        window.fbq('init', PIXEL_ID, {
+          fn: nameParts[0] || '',
+          ln: nameParts.slice(1).join(' ') || '',
+          ph: phoneDigits
+        });
+        window.fbq('track', 'Lead');
+      }
+
       window.open(BOT_URL, '_blank', 'noopener');
     });
   }
